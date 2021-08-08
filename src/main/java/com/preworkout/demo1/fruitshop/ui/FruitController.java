@@ -23,14 +23,17 @@ public class FruitController {
     @GetMapping("/product")
     public ResponseEntity<List<FruitResponse>> findAllFruitOf(@RequestHeader(value="Authorization") String token) {
         if (!token.equals(ACCESS_TOKEN)) {
-            System.out.println(token);
+//            System.out.println(token);
             throw new IllegalArgumentException("유효하지 않은 token header");
         }
         return ResponseEntity.ok(fruitService.findAllFruit());
     }
 
     @GetMapping(value = "/product", params = "name")
-    public ResponseEntity<FruitResponse> findByName(@RequestParam String name) {
+    public ResponseEntity<FruitResponse> findByName(@RequestHeader(value="Authorization") String token, @RequestParam String name) {
+        if (!token.equals(ACCESS_TOKEN)) {
+            throw new IllegalArgumentException("유효하지 않은 token header");
+        }
         // exception handling
         return ResponseEntity.ok(fruitService.findFruitByName(name));
     }

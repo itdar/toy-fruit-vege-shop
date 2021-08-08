@@ -2,6 +2,9 @@
 var main = {
     init : function () {
         var _this = this;
+        $('#btn-check-token').on('click', function () {
+            _this.token_check();
+        });
         $('#btn-check-fruitprice').on('click', function () {
             _this.fruit_check();
         });
@@ -9,6 +12,22 @@ var main = {
             _this.vege_check();
         });
     },
+    token_check : function () {
+        $.ajax({
+            type: 'GET',
+            url: '/token',
+            dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+        }).done(function(data) {
+            console.log(data);
+            var json = JSON.parse(JSON.stringify(data));
+            $('#accessToken').text(json.accessToken);
+            alert('토큰 조회.');
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
+    },
+
     fruit_check : function () {
         var data = {
             name: $('#fruit_name').val(),
@@ -18,12 +37,14 @@ var main = {
             type: 'GET',
             url: '/fruit/product',
             dataType: 'json',
-            Authorization: $('#accessToken').val(),
+            headers: {
+                'Authorization': $('#accessToken').text()
+            },
             contentType:'application/json; charset=utf-8',
             data: { name: data.name },
-        }).done(function() {
+        }).done(function(data) {
+            console.log(data);
             alert('과일 가격 조회.');
-            window.location.href = '/';
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });
@@ -31,19 +52,21 @@ var main = {
 
     vege_check : function () {
         var data = {
-            name: $('#vege_name').val()
+            name: $('#fruit_name').val(),
         };
 
         $.ajax({
             type: 'GET',
             url: '/vegetable/item',
             dataType: 'json',
-            Authorization: $('#accessToken').val(),
+            headers: {
+                'Authorization': $('#accessToken').text()
+            },
             contentType:'application/json; charset=utf-8',
             data: { name: data.name },
         }).done(function() {
+            console.log(data);
             alert('채소 가격 조회.');
-            window.location.href = '/';
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });
