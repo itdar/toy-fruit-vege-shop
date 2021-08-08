@@ -1,9 +1,10 @@
 package com.preworkout.demo1.fruitshop.domain;
 
-import com.preworkout.demo1.fruitshop.dto.FruitResponse;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
 
 public interface FruitRepository extends JpaRepository<Fruit, Long> {
 
-    Fruit findByName(String name);
+    Optional<Fruit> findByName(String name);
 }
