@@ -15,7 +15,7 @@ public class ExceptionController {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(NoSuchElementException.class)
     public ResponseEntity handleNotFoundException(NoSuchElementException e) {
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.badRequest().build();
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
