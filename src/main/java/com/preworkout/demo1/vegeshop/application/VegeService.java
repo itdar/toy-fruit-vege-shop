@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
@@ -34,7 +35,8 @@ public class VegeService {
 
     @Transactional(readOnly = true)
     public VegetableResponse findVegetableByName(String name) {
-        return VegetableResponse.of(vegeRepository.findByName(name));
+        return VegetableResponse.of(vegeRepository.findByName(name)
+                .orElseThrow(NoSuchElementException::new));
     }
 
 }
