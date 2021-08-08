@@ -46,7 +46,7 @@ var main = {
             console.log(data);
             var json = JSON.parse(JSON.stringify(data));
             $('#fruit-price').text(json.price);
-            alert('과일 가격 조회.');
+            // alert('과일 가격 조회.');
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });
@@ -54,7 +54,7 @@ var main = {
 
     vege_check : function () {
         var data = {
-            name: $('#fruit_name').val(),
+            name: $('#vege_name').val(),
         };
 
         $.ajax({
@@ -66,11 +66,11 @@ var main = {
             },
             contentType:'application/json; charset=utf-8',
             data: { name: data.name },
-        }).done(function() {
+        }).done(function(data) {
             console.log(data);
             var json = JSON.parse(JSON.stringify(data));
             $('#vege-price').text(json.price);
-            alert('채소 가격 조회.');
+            // alert('채소 가격 조회.');
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });
