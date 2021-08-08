@@ -42,18 +42,20 @@ public class PageController {
         List<FruitRequest> fruits = Arrays.asList(
                 FruitRequest.of("사과", 1000),
                 FruitRequest.of("배", 3000),
-                FruitRequest.of("수박", 5000));
+                FruitRequest.of("수박", 5000),
+                FruitRequest.of("딸기", 7000),
+                FruitRequest.of("망고", 50000),
+                FruitRequest.of("파인애플", 8000));
 
         List<VegetableRequest> veges = Arrays.asList(
                 VegetableRequest.of("치커리", 3400),
                 VegetableRequest.of("토마토", 2000),
                 VegetableRequest.of("깻잎", 1600),
+                VegetableRequest.of("배추", 5000),
+                VegetableRequest.of("양배추", 7600),
                 VegetableRequest.of("상추", 2500));
 
-        fruits.stream()
-                .forEach(fruit -> fruitService.save(fruit));
-
-        veges.stream()
-                .forEach(vegetable -> vegeService.save(vegetable));
+        fruits.forEach(fruitService::save);
+        veges.forEach(vegeService::save);
     }
 }
