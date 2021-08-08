@@ -44,6 +44,8 @@ var main = {
             data: { name: data.name },
         }).done(function(data) {
             console.log(data);
+            var json = JSON.parse(JSON.stringify(data));
+            $('#fruit-price').text(json.price);
             alert('과일 가격 조회.');
         }).fail(function (error) {
             alert(JSON.stringify(error));
@@ -66,6 +68,8 @@ var main = {
             data: { name: data.name },
         }).done(function() {
             console.log(data);
+            var json = JSON.parse(JSON.stringify(data));
+            $('#vege-price').text(json.price);
             alert('채소 가격 조회.');
         }).fail(function (error) {
             alert(JSON.stringify(error));
