@@ -12,9 +12,14 @@ import static com.preworkout.demo1.auth.domain.AccessToken.ACCESS_TOKEN;
 public class AuthController {
 
     @GetMapping(value = "/token")
-    public ResponseEntity getToken() {
+    public ResponseEntity getFruitToken() {
         TokenResponse tokenResponse = new TokenResponse(ACCESS_TOKEN);
         return ResponseEntity.ok().body(tokenResponse);
     }
 
+    @GetMapping(value = "/vegetoken")
+    public ResponseEntity getVegeToken() {
+        TokenResponse tokenResponse = new TokenResponse(ACCESS_TOKEN);
+        return ResponseEntity.ok().body(tokenResponse);
+    }
 }
