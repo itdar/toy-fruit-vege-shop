@@ -1,5 +1,6 @@
 package com.preworkout.demo1.auth;
 
+import com.preworkout.demo1.AcceptanceTest;
 import com.preworkout.demo1.auth.domain.AccessToken;
 import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;
@@ -7,16 +8,18 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("인증 토큰 인수테스트")
-public class AuthTokenAcceptanceTest {
+public class AuthTokenAcceptanceTest extends AcceptanceTest {
 
     @BeforeEach
     public void setUp() {
-
+        super.setUp();
     }
 
     @DisplayName("채소 토큰을 쿠키로 발급 받는다.")
