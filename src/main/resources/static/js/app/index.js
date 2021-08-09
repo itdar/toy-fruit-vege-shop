@@ -1,6 +1,5 @@
-
 var main = {
-    init : function () {
+    init: function () {
         var _this = this;
         $('#btn-check-token').on('click', function () {
             _this.token_check();
@@ -15,13 +14,13 @@ var main = {
             _this.vege_check();
         });
     },
-    token_check : function () {
+    token_check: function () {
         $.ajax({
             type: 'GET',
             url: '/token',
             dataType: 'json',
-            contentType:'application/json; charset=utf-8',
-        }).done(function(data) {
+            contentType: 'application/json; charset=utf-8',
+        }).done(function (data) {
             console.log(data);
             var json = JSON.parse(JSON.stringify(data));
             $('#accessToken').text(json.accessToken);
@@ -31,13 +30,13 @@ var main = {
         });
     },
 
-    vegetoken_check : function () {
+    vegetoken_check: function () {
         $.ajax({
             type: 'GET',
             url: '/vegetoken',
             dataType: 'json',
-            contentType:'application/json; charset=utf-8',
-        }).done(function(data) {
+            contentType: 'application/json; charset=utf-8',
+        }).done(function (data) {
             console.log(data);
             $('#vege-accessToken').text(getCookie('accessToken'));
             alert('채소 토큰 받음.');
@@ -46,7 +45,7 @@ var main = {
         });
     },
 
-    fruit_check : function () {
+    fruit_check: function () {
         var data = {
             name: $('#fruit_name').val(),
         };
@@ -58,9 +57,9 @@ var main = {
             headers: {
                 'Authorization': $('#accessToken').text()
             },
-            contentType:'application/json; charset=utf-8',
-            data: { name: data.name },
-        }).done(function(data) {
+            contentType: 'application/json; charset=utf-8',
+            data: {name: data.name},
+        }).done(function (data) {
             console.log(data);
             var json = JSON.parse(JSON.stringify(data));
             $('#fruit-price').text(" " + json.price);
@@ -70,7 +69,7 @@ var main = {
         });
     },
 
-    vege_check : function () {
+    vege_check: function () {
         var data = {
             name: $('#vege_name').val(),
         };
@@ -82,9 +81,9 @@ var main = {
             headers: {
                 'Authorization': $('#vege-accessToken').text()
             },
-            contentType:'application/json; charset=utf-8',
-            data: { name: data.name },
-        }).done(function(data) {
+            contentType: 'application/json; charset=utf-8',
+            data: {name: data.name},
+        }).done(function (data) {
             console.log(data);
             var json = JSON.parse(JSON.stringify(data));
             $('#vege-price').text(" " + json.price);

@@ -1,95 +1,95 @@
 {{>layout/header}}
 
 <h1>테스트 페이지</h1>
-    <div class="col-md-12">
-        <div class="form-group">
-            <label for="token"> 과일 토큰 </label>
-            <button type="button" class="btn btn-primary" id="btn-check-token">과일 토큰 Json으로 받기</button>
-            <li>
-                <span id="accessToken"> </span>
-            </li>
-        </div>
-        <br>
-        <div class="form-group">
-            <label for="vegetoken"> 채소 토큰 </label>
-            <button type="button" class="btn btn-primary" id="btn-check-vegetoken">채소 토큰 쿠키로 받기</button>
-            <li>
-                <span id="vege-accessToken"> </span>
-            </li>
-        </div>
+<div class="col-md-12">
+    <div class="form-group">
+        <label for="token"> 과일 토큰 </label>
+        <button type="button" class="btn btn-primary" id="btn-check-token">과일 토큰 Json으로 받기</button>
+        <li>
+            <span id="accessToken"> </span>
+        </li>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="vegetoken"> 채소 토큰 </label>
+        <button type="button" class="btn btn-primary" id="btn-check-vegetoken">채소 토큰 쿠키로 받기</button>
+        <li>
+            <span id="vege-accessToken"> </span>
+        </li>
+    </div>
 
-        <br><br>
-        <label> 토큰을 먼저 받아야 조회가 가능합니다. </label><br>
-        <label> WAS가 시작되면 인메모리 데이터베이스에 데이터를 추가한 후, 추가된 데이터가 아래에 보여집니다. </label><br>
-        <label> 토큰을 받고 -> 상품 입력 -> 조회 -> 가격 확인 </label><br>
-        <br><br>
+    <br><br>
+    <label> 토큰을 먼저 받아야 조회가 가능합니다. </label><br>
+    <label> WAS가 시작되면 인메모리 데이터베이스에 데이터를 추가한 후, 추가된 데이터가 아래에 보여집니다. </label><br>
+    <label> 토큰을 받고 -> 상품 입력 -> 조회 -> 가격 확인 </label><br>
+    <br><br>
 
-        <table style="width: 746px;">
-            <tbody>
-            <tr style="height: 23.5px;">
-                <td style="width: 255.062px; height: 23.5px;">상품 분류</td>
-                <td style="width: 164.938px; height: 23.5px;">재고상품</td>
-                <td style="width: 204px; height: 23.5px;">가격 확인 하려는 상품 이름 입력</td>
-                <td style="width: 118px; height: 23.5px;">&nbsp;</td>
-                <td style="width: 118px; height: 23.5px;">&nbsp;가격</td>
-            </tr>
-            </tbody>
-        </table>
+    <table style="width: 746px;">
+        <tbody>
+        <tr style="height: 23.5px;">
+            <td style="width: 255.062px; height: 23.5px;">상품 분류</td>
+            <td style="width: 164.938px; height: 23.5px;">재고상품</td>
+            <td style="width: 204px; height: 23.5px;">가격 확인 하려는 상품 이름 입력</td>
+            <td style="width: 118px; height: 23.5px;">&nbsp;</td>
+            <td style="width: 118px; height: 23.5px;">&nbsp;가격</td>
+        </tr>
+        </tbody>
+    </table>
 
-        <br><br>
+    <br><br>
 
-        <table style="width: 746px;">
-            <tbody>
-            <tr style="height: 23px;">
-                <td style="width: 255.062px; height: 23px;">
-                    <p>&nbsp;과일</p>
-                </td>
-                <td style="width: 164.938px; height: 23px;">
-                        {{#fruits}}
-                            <option>{{name}}</option>
-                        {{/fruits}}
-                </td>
-                <td style="width: 204px; height: 23px;">
-                    <input type="fruit_name" class="form-control" id="fruit_name" placeholder="과일이름입력">
-                </td>
-                <td style="width: 118px; height: 23px;">
-                    <button type="button" class="btn btn-primary" id="btn-check-fruitprice">과일가격확인</button>
-                </td>
-                <td style="width: 118px; height: 23px;">
+    <table style="width: 746px;">
+        <tbody>
+        <tr style="height: 23px;">
+            <td style="width: 255.062px; height: 23px;">
+                <p>&nbsp;과일</p>
+            </td>
+            <td style="width: 164.938px; height: 23px;">
+                {{#fruits}}
+                    <option>{{name}}</option>
+                {{/fruits}}
+            </td>
+            <td style="width: 204px; height: 23px;">
+                <input type="fruit_name" class="form-control" id="fruit_name" placeholder="과일이름입력">
+            </td>
+            <td style="width: 118px; height: 23px;">
+                <button type="button" class="btn btn-primary" id="btn-check-fruitprice">과일가격확인</button>
+            </td>
+            <td style="width: 118px; height: 23px;">
                     <span id="fruit-price">
 
                     </span>
-                </td>
-            </tr>
-        </table>
+            </td>
+        </tr>
+    </table>
 
-        <br><br>
+    <br><br>
 
-        <table style="width: 746px;">
-            <tr style="height: 22px;">
-                <td style="width: 255.062px; height: 22px;">
-                    <p>&nbsp;채소</p>
-                </td>
-                <td style="width: 164.938px; height: 23px;">
-                    {{#veges}}
-                        <option>{{name}}</option>
-                    {{/veges}}
-                </td>
-                <td style="width: 204px; height: 23px;">
-                    <input type="vege_name" class="form-control" id="vege_name" placeholder="채소이름입력">
-                </td>
-                <td style="width: 118px; height: 23px;">
-                    <button type="button" class="btn btn-primary" id="btn-check-vegeprice">채소가격확인</button>
-                </td>
-                <td style="width: 118px; height: 23px;">
+    <table style="width: 746px;">
+        <tr style="height: 22px;">
+            <td style="width: 255.062px; height: 22px;">
+                <p>&nbsp;채소</p>
+            </td>
+            <td style="width: 164.938px; height: 23px;">
+                {{#veges}}
+                    <option>{{name}}</option>
+                {{/veges}}
+            </td>
+            <td style="width: 204px; height: 23px;">
+                <input type="vege_name" class="form-control" id="vege_name" placeholder="채소이름입력">
+            </td>
+            <td style="width: 118px; height: 23px;">
+                <button type="button" class="btn btn-primary" id="btn-check-vegeprice">채소가격확인</button>
+            </td>
+            <td style="width: 118px; height: 23px;">
                     <span id="vege-price">
 
                     </span>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 
-    </div>
+</div>
 
 {{>layout/footer}}

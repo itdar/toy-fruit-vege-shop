@@ -1,7 +1,5 @@
 package com.preworkout.demo1.vegeshop.domain;
 
-import org.springframework.lang.Nullable;
-
 import javax.persistence.*;
 
 @Entity
@@ -16,7 +14,8 @@ public class Vegetable {
     @Embedded
     private VegePrice price;
 
-    protected Vegetable() { }
+    protected Vegetable() {
+    }
 
     private Vegetable(String name, int price) {
         this.name = name;

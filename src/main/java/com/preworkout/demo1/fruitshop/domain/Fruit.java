@@ -13,7 +13,8 @@ public class Fruit {
     @Embedded
     private FruitPrice price;
 
-    protected Fruit() { }
+    protected Fruit() {
+    }
 
     private Fruit(String name, int price) {
         this.name = name;

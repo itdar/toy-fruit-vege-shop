@@ -21,7 +21,7 @@ public class FruitController {
     }
 
     @GetMapping("/product")
-    public ResponseEntity<List<FruitResponse>> findAllFruitOf(@RequestHeader(value="Authorization") String token) {
+    public ResponseEntity<List<FruitResponse>> findAllFruitOf(@RequestHeader(value = "Authorization") String token) {
         if (!token.equals(ACCESS_TOKEN)) {
             throw new IllegalArgumentException("유효하지 않은 token header");
         }
@@ -29,7 +29,7 @@ public class FruitController {
     }
 
     @GetMapping(value = "/product", params = "name")
-    public ResponseEntity<FruitResponse> findByName(@RequestHeader(value="Authorization") String token,
+    public ResponseEntity<FruitResponse> findByName(@RequestHeader(value = "Authorization") String token,
                                                     @RequestParam String name) {
         if (!token.equals(ACCESS_TOKEN)) {
             throw new IllegalArgumentException("유효하지 않은 token header");

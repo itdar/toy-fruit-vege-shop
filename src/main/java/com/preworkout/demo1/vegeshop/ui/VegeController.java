@@ -21,7 +21,7 @@ public class VegeController {
     }
 
     @GetMapping("/item")
-    public ResponseEntity<List<VegetableResponse>> findAllVegetableOf(@RequestHeader(value="Authorization") String token) {
+    public ResponseEntity<List<VegetableResponse>> findAllVegetableOf(@RequestHeader(value = "Authorization") String token) {
         if (!token.equals(ACCESS_TOKEN)) {
             throw new IllegalArgumentException("유효하지 않은 token header");
         }
@@ -29,7 +29,7 @@ public class VegeController {
     }
 
     @GetMapping(value = "/item", params = "name")
-    public ResponseEntity<VegetableResponse> findByName(@RequestHeader(value="Authorization") String token,
+    public ResponseEntity<VegetableResponse> findByName(@RequestHeader(value = "Authorization") String token,
                                                         @RequestParam String name) {
         if (!token.equals(ACCESS_TOKEN)) {
             throw new IllegalArgumentException("유효하지 않은 token header");

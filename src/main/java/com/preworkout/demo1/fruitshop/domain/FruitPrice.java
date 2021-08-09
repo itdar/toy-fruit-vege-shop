@@ -12,7 +12,8 @@ public class FruitPrice {
         this.price = price;
     }
 
-    protected FruitPrice() { }
+    protected FruitPrice() {
+    }
 
     private void validateFruitPrice(int price) {
         if (price < 0 || price > Integer.MAX_VALUE) {

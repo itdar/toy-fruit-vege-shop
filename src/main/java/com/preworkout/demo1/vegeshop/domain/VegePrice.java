@@ -13,7 +13,8 @@ public class VegePrice {
         this.price = price;
     }
 
-    protected VegePrice() { }
+    protected VegePrice() {
+    }
 
     private void validateVegePrice(int price) {
         if (price < 0 || price > Integer.MAX_VALUE) {

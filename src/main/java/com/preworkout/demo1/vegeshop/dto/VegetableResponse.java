@@ -7,7 +7,8 @@ public class VegetableResponse {
     private String name;
     private int price;
 
-    protected VegetableResponse() { }
+    protected VegetableResponse() {
+    }
 
     private VegetableResponse(Long id, String name, int price) {
         this.id = id;

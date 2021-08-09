@@ -37,7 +37,7 @@ public class PageController {
 
         return "index";
     }
-    
+
     private void initDatabase() {
         List<FruitRequest> fruits = Arrays.asList(
                 FruitRequest.of("사과", 1000),
