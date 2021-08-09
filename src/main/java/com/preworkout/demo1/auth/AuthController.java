@@ -1,4 +1,4 @@
-package com.preworkout.demo1.auth.ui;
+package com.preworkout.demo1.auth;
 
 import com.preworkout.demo1.auth.dto.TokenResponse;
 import org.springframework.http.ResponseEntity;

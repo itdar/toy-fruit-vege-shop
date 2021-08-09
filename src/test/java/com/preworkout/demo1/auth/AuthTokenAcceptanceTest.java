@@ -1,6 +1,6 @@
 package com.preworkout.demo1.auth;
 
-import com.preworkout.demo1.AcceptanceTest;
+import com.preworkout.demo1.auth.domain.AccessToken;
 import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
@@ -12,11 +12,11 @@ import org.springframework.http.HttpStatus;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("인증 토큰 인수테스트")
-public class AuthTokenTest extends AcceptanceTest {
+public class AuthTokenAcceptanceTest {
 
     @BeforeEach
     public void setUp() {
-        super.setUp();
+
     }
 
     @DisplayName("채소 토큰을 쿠키로 발급 받는다.")
@@ -32,7 +32,7 @@ public class AuthTokenTest extends AcceptanceTest {
         // then
         // 토큰이 쿠키에 담겨져서 온다.
         assertThat(response.statusCode()).isEqualTo(HttpStatus.OK.value());
-
+        assertThat(response.cookie("accessToken")).isEqualTo(AccessToken.ACCESS_TOKEN);
     }
 
     private static ExtractableResponse<Response> 토큰을_요청한다(String path) {
